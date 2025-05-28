@@ -21,7 +21,7 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            width: 300px;
+            width: 320px;
         }
         .card {
             background: white;
@@ -68,11 +68,33 @@
             const expiryYear = String(Math.floor(Math.random() * 5) + 25);
             const cvv = Math.floor(Math.random() * 900 + 100);
 
-            // Generate 1,000 random first and last names
-            const firstNames = Array.from({length: 1000}, (_, i) => `FirstName${i + 1}`);
-            const lastNames = Array.from({length: 1000}, (_, i) => `LastName${i + 1}`);
+            // Real first & last names
+            const firstNames = [
+                "Michael", "James", "Emma", "Sophia", "Olivia", "William", "John", "Benjamin", "Lucas", "Henry",
+                "Charlotte", "Mason", "Ethan", "Alexander", "Jacob", "Daniel", "Ava", "Harper", "Matthew", "Ella",
+                "David", "Joseph", "Isabella", "Emily", "Madison", "Liam", "Noah", "Evelyn", "Abigail", "Grace",
+                "Samuel", "Elijah", "Logan", "Jack", "Scarlett", "Victoria", "Chloe", "Ryan", "Zoe", "Carter",
+                "Nathan", "Dylan", "Leo", "Mila", "Aurora", "Lucy", "Jonathan", "Andrew", "Sebastian", "Joshua",
+                "Gabriel", "Nicholas", "Christopher", "Lincoln", "Luke", "Aria", "Paisley", "Hazel", "Ellie", "Lily",
+                "Anthony", "Aaron", "Bella", "Alice", "Maya", "Nova", "Adeline", "Serenity", "Ruby", "Summer",
+                "Oscar", "Miles", "Adam", "Jason", "Connor", "Easton", "Hunter", "Hudson", "Ezra", "Cole",
+                "Everett", "Roman", "Asher", "Thomas", "Kevin", "Brandon", "Jordan", "Jeremy", "Austin", "Caleb"
+            ];
+            
+            const lastNames = [
+                "Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez",
+                "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Moore", "Taylor", "Clark", "White",
+                "Hall", "Young", "Allen", "Scott", "Adams", "Nelson", "Baker", "King", "Wright", "Green",
+                "Walker", "Hill", "Lewis", "Harris", "Roberts", "Campbell", "Stewart", "Sanchez", "Morris", "Rogers",
+                "Reed", "Cook", "Morgan", "Bell", "Murphy", "Bailey", "Cooper", "Rivera", "Richardson", "Cox",
+                "Howard", "Ward", "Torres", "Peterson", "Gray", "Ramirez", "James", "Watson", "Brooks", "Kelly",
+                "Sanders", "Price", "Bennett", "Wood", "Barnes", "Ross", "Henderson", "Coleman", "Jenkins", "Perry",
+                "Powell", "Long", "Patterson", "Hughes", "Flores", "Washington", "Butler", "Simmons", "Foster", "Gonzales",
+                "Bryant", "Alexander", "Russell", "Griffin", "Diaz", "Hayes", "Myers", "Ford", "Hamilton", "Graham",
+                "Sullivan", "Wallace", "Cole", "West", "Jordan", "Owens", "Reynolds", "Fisher", "Ellis", "Harrison"
+            ];
 
-            // Combine a random first and last name
+            // Generate random name
             const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const cardHolder = `${randomFirstName} ${randomLastName}`;
