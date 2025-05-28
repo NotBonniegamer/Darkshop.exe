@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fake Kreditkarten Generator</title>
+    <title>Credit Card Generator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -51,13 +51,13 @@
 <body>
 
     <div class="container">
-        <h1>🎮 Fake Kreditkarten</h1>
-        <button class="button" onclick="generateCard()">🃏 Karte erstellen</button>
+        <h1>🎮 Credit Card Generator</h1>
+        <button class="button" onclick="generateCard()">🃏 Generate Card</button>
         <div class="card" id="cardInfo">
-            <p><strong>Kartennummer:</strong> #### #### #### ####</p>
-            <p><strong>Ablaufdatum:</strong> MM/YY</p>
+            <p><strong>Card Number:</strong> #### #### #### ####</p>
+            <p><strong>Expiration Date:</strong> MM/YY</p>
             <p><strong>CVV:</strong> ###</p>
-            <p><strong>Karteninhaber:</strong> ???</p>
+            <p><strong>Card Holder:</strong> ???</p>
         </div>
     </div>
 
@@ -67,14 +67,21 @@
             const expiryMonth = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
             const expiryYear = String(Math.floor(Math.random() * 5) + 25);
             const cvv = Math.floor(Math.random() * 900 + 100);
-            const names = ["Max Gamer", "Cyber Player", "John Doe", "Pixel Master", "Hero Legend"];
-            const cardHolder = names[Math.floor(Math.random() * names.length)];
+
+            // Generate 1,000 random first and last names
+            const firstNames = Array.from({length: 1000}, (_, i) => `FirstName${i + 1}`);
+            const lastNames = Array.from({length: 1000}, (_, i) => `LastName${i + 1}`);
+
+            // Combine a random first and last name
+            const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+            const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+            const cardHolder = `${randomFirstName} ${randomLastName}`;
 
             document.getElementById("cardInfo").innerHTML = `
-                <p><strong>Kartennummer:</strong> ${cardNumber}</p>
-                <p><strong>Ablaufdatum:</strong> ${expiryMonth}/${expiryYear}</p>
+                <p><strong>Card Number:</strong> ${cardNumber}</p>
+                <p><strong>Expiration Date:</strong> ${expiryMonth}/${expiryYear}</p>
                 <p><strong>CVV:</strong> ${cvv}</p>
-                <p><strong>Karteninhaber:</strong> ${cardHolder}</p>
+                <p><strong>Card Holder:</strong> ${cardHolder}</p>
             `;
         }
     </script>
