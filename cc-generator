@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Kreditkarten Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: linear-gradient(45deg, #3498db, #8e44ad);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+        }
+        .card {
+            background: white;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: left;
+        }
+        .button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #ff6f61;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎮 Fake Kreditkarten</h1>
+        <button class="button" onclick="generateCard()">🃏 Karte erstellen</button>
+        <div class="card" id="cardInfo">
+            <p><strong>Kartennummer:</strong> #### #### #### ####</p>
+            <p><strong>Ablaufdatum:</strong> MM/YY</p>
+            <p><strong>CVV:</strong> ###</p>
+            <p><strong>Karteninhaber:</strong> ???</p>
+        </div>
+    </div>
+
+    <script>
+        function generateCard() {
+            const cardNumber = Array(16).fill(0).map(() => Math.floor(Math.random() * 10)).join("");
+            const expiryMonth = String(Math.floor(Math.random() * 12) + 1).padStart(2, '0');
+            const expiryYear = String(Math.floor(Math.random() * 5) + 25);
+            const cvv = Math.floor(Math.random() * 900 + 100);
+            const names = ["Max Gamer", "Cyber Player", "John Doe", "Pixel Master", "Hero Legend"];
+            const cardHolder = names[Math.floor(Math.random() * names.length)];
+
+            document.getElementById("cardInfo").innerHTML = `
+                <p><strong>Kartennummer:</strong> ${cardNumber}</p>
+                <p><strong>Ablaufdatum:</strong> ${expiryMonth}/${expiryYear}</p>
+                <p><strong>CVV:</strong> ${cvv}</p>
+                <p><strong>Karteninhaber:</strong> ${cardHolder}</p>
+            `;
+        }
+    </script>
+
+</body>
+</html>
