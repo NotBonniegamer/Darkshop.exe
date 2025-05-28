@@ -21,7 +21,7 @@
             border-radius: 15px;
             text-align: center;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-            width: 320px;
+            width: 350px;
         }
         .card {
             background: white;
@@ -58,6 +58,8 @@
             <p><strong>Expiration Date:</strong> MM/YY</p>
             <p><strong>CVV:</strong> ###</p>
             <p><strong>Card Holder:</strong> ???</p>
+            <p><strong>State:</strong> ???</p>
+            <p><strong>Phone Number:</strong> (###) ###-####</p>
         </div>
     </div>
 
@@ -68,42 +70,27 @@
             const expiryYear = String(Math.floor(Math.random() * 5) + 25);
             const cvv = Math.floor(Math.random() * 900 + 100);
 
-            // Real first & last names
-            const firstNames = [
-                "Michael", "James", "Emma", "Sophia", "Olivia", "William", "John", "Benjamin", "Lucas", "Henry",
-                "Charlotte", "Mason", "Ethan", "Alexander", "Jacob", "Daniel", "Ava", "Harper", "Matthew", "Ella",
-                "David", "Joseph", "Isabella", "Emily", "Madison", "Liam", "Noah", "Evelyn", "Abigail", "Grace",
-                "Samuel", "Elijah", "Logan", "Jack", "Scarlett", "Victoria", "Chloe", "Ryan", "Zoe", "Carter",
-                "Nathan", "Dylan", "Leo", "Mila", "Aurora", "Lucy", "Jonathan", "Andrew", "Sebastian", "Joshua",
-                "Gabriel", "Nicholas", "Christopher", "Lincoln", "Luke", "Aria", "Paisley", "Hazel", "Ellie", "Lily",
-                "Anthony", "Aaron", "Bella", "Alice", "Maya", "Nova", "Adeline", "Serenity", "Ruby", "Summer",
-                "Oscar", "Miles", "Adam", "Jason", "Connor", "Easton", "Hunter", "Hudson", "Ezra", "Cole",
-                "Everett", "Roman", "Asher", "Thomas", "Kevin", "Brandon", "Jordan", "Jeremy", "Austin", "Caleb"
-            ];
-            
-            const lastNames = [
-                "Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez",
-                "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Moore", "Taylor", "Clark", "White",
-                "Hall", "Young", "Allen", "Scott", "Adams", "Nelson", "Baker", "King", "Wright", "Green",
-                "Walker", "Hill", "Lewis", "Harris", "Roberts", "Campbell", "Stewart", "Sanchez", "Morris", "Rogers",
-                "Reed", "Cook", "Morgan", "Bell", "Murphy", "Bailey", "Cooper", "Rivera", "Richardson", "Cox",
-                "Howard", "Ward", "Torres", "Peterson", "Gray", "Ramirez", "James", "Watson", "Brooks", "Kelly",
-                "Sanders", "Price", "Bennett", "Wood", "Barnes", "Ross", "Henderson", "Coleman", "Jenkins", "Perry",
-                "Powell", "Long", "Patterson", "Hughes", "Flores", "Washington", "Butler", "Simmons", "Foster", "Gonzales",
-                "Bryant", "Alexander", "Russell", "Griffin", "Diaz", "Hayes", "Myers", "Ford", "Hamilton", "Graham",
-                "Sullivan", "Wallace", "Cole", "West", "Jordan", "Owens", "Reynolds", "Fisher", "Ellis", "Harrison"
-            ];
-
-            // Generate random name
+            // Random first and last names
+            const firstNames = ["Michael", "James", "Emma", "Sophia", "Olivia", "William", "John", "Benjamin", "Lucas", "Henry"];
+            const lastNames = ["Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis", "Garcia", "Rodriguez", "Martinez"];
             const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
             const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
             const cardHolder = `${randomFirstName} ${randomLastName}`;
+
+            // Random U.S. state
+            const states = ["California", "Texas", "New York", "Florida", "Illinois", "Ohio", "Georgia", "Michigan", "Colorado", "Washington"];
+            const randomState = states[Math.floor(Math.random() * states.length)];
+
+            // Random phone number in format (XXX) XXX-XXXX
+            const phoneNumber = `(${Math.floor(Math.random() * 900 + 100)}) ${Math.floor(Math.random() * 900 + 100)}-${Math.floor(Math.random() * 9000 + 1000)}`;
 
             document.getElementById("cardInfo").innerHTML = `
                 <p><strong>Card Number:</strong> ${cardNumber}</p>
                 <p><strong>Expiration Date:</strong> ${expiryMonth}/${expiryYear}</p>
                 <p><strong>CVV:</strong> ${cvv}</p>
                 <p><strong>Card Holder:</strong> ${cardHolder}</p>
+                <p><strong>State:</strong> ${randomState}</p>
+                <p><strong>Phone Number:</strong> ${phoneNumber}</p>
             `;
         }
     </script>
